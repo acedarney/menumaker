@@ -1,0 +1,15 @@
+<h1>Recipe List</h1>
+
+<ul>
+    <!-- {% if recipes %} -->
+        {% for recipe in recipes %}
+            <li>
+                {{recipe.name}}
+            </li>
+        {% endfor %}
+    <!-- {% else %}
+    <li>
+        No recipes yet.
+    </li>
+    {% endif %} -->
+</ul>

@@ -1,12 +1,26 @@
-from flask import Flask
-from flask_pymongo import PyMongo
-import jsonify
+from flask import Flask, render_template, url_for, redirect
+from flask_mongoengine import MongoEngine
+# from models import db, Recipe, Menu
 
 app = Flask(__name__)
-mongo = PyMongo(app)
+app.config.from_object(__name__)
+app.config['MONGODB_SETTINGS'] = {'DB': 'menumaker_flask'}
 
-app.config['MONGO_DBNAME'] = 'menumaker_flask'
-# app.config['MONGO_URI'] = 'mongodb+srv://acedarney:E46&YUg#pYkG@menumaker-oyxdx.mongodb.net/test?retryWrites=true'
+
+db = MongoEngine()
+db.init_app(app)
+
+class Recipe(db.Document):
+    name = db.StringField()
+    instructions = db.StringField()
+    # ingredients = db.ListField(db.StringField)
+    ingredients = db.StringField()
+
+class Menu(db.Document):
+    name = db.StringField()
+    # recipes = db.ListField(db.StringField)
+
+
 
 @app.route('/')
 def index():
@@ -15,33 +29,30 @@ def index():
 @app.route('/add')
 def add():
     """
-    Add a fixed document to the 'recipes' collection.  
-    TODO: update to a form that adds the proper fields
+    Add a fixed document to the 'recipe' collection.  
     """
-    recipes = mongo.db.recipes
-    recipes.insert({'name' : 'Spaghetti',
-                    'instructions' : 'Cook noodles.  Add sauce.',
-                    'ingredients' : [
-                        {'name' : 'Noodles'},
-                        {'name' : 'Sauce'}]
-                    })
-    return 'Recipe added.'
+    Recipe.objects().delete()
+    Recipe(name='Spaghetti', 
+           instructions='Cook noodles. Add sauce.', 
+           ingredients='Noodles').save()
+    
+    return redirect(url_for('view_recipes_list'))
+
+@app.route('/recipes')
+def view_recipes_list():
+    """
+    View all recipes
+    """
+    recipes = Recipe.objects.all()
+    return render_template('recipe_list.html', recipes=recipes)
 
 @app.route('/recipe/<name>')
 def view_single_recipe(name):
     """
-    Retrieve a recipe name and instructions as text.
-    TODO: update to return JSON of the full document (with nested list of ingredients)
+    View a single recipe
     """
-    recipes = mongo.db.recipes
-    requested_recipe = recipes.find_one({'name' : name})
-
-    result = {'name' : requested_recipe['name'],
-              'instructions' : requested_recipe['instructions']
-             }
-
-    return ' '.join([requested_recipe['name'], requested_recipe['instructions']])
-
+    recipe = Recipe.objects.get_or_404(name=name)
+    return 'Recipe Name: {}'.format(recipe.name)
 
 if __name__ == '__main__':
     app.run(debug=True) 
