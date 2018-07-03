@@ -1,0 +1,13 @@
+[
+    {"ingredients": "Noodles, Sauce, Meatballs",
+     "instructions": "Cook meatballs. Cook noodles. Add sauce and meatballs.",
+     "name": "Spaghetti with Meatballs"},
+
+    {"ingredients": "Noodles, Sauce",
+     "instructions": "Cook noodles. Add sauce.",
+     "name": "Spaghetti"},
+
+    {"ingredients": "Burgers, Buns, Condiments",
+     "instructions": "Cook burgers. Place on buns and add condiments.",
+     "name": "Burgers"}
+]
