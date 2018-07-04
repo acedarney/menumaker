@@ -1,13 +1,42 @@
 [
+    {"ingredients": [
+            {"name": "Noodles",
+                "measure": "box",
+                "qty": "1"},
+            {"name": "Sauce",
+                "measure": "jar",
+                "qty": "1"},
+            {"name": "Meatballs",
+                "measure": "lbs",
+                "qty": "1"} ],
+        "instructions": "Cook meatballs. Cook noodles. Add sauce and meatballs.",
+        "name": "Spaghetti with Meatballs"},
+
+    {"ingredients": [
+            {"name": "Noodles",
+                "measure": "box",
+                "qty": "1"},
+            {"name": "Sauce",
+                "measure": "jar",
+                "qty": "1"}],
+        "instructions": "Cook noodles. Add sauce and meatballs.",
+        "name": "Spaghetti"},
+
+    
+
     {"ingredients": "Noodles, Sauce, Meatballs",
-     "instructions": "Cook meatballs. Cook noodles. Add sauce and meatballs.",
-     "name": "Spaghetti with Meatballs"},
+        "instructions": "Cook meatballs. Cook noodles. Add sauce.",
+        "name": "Spaghetti with Meatballs"},
 
     {"ingredients": "Noodles, Sauce",
-     "instructions": "Cook noodles. Add sauce.",
-     "name": "Spaghetti"},
+        "instructions": "Cook noodles. Add sauce.",
+        "name": "Spaghetti"},
 
     {"ingredients": "Burgers, Buns, Condiments",
-     "instructions": "Cook burgers. Place on buns and add condiments.",
-     "name": "Burgers"}
+        "instructions": "Cook burgers. Place on buns and add condiments.",
+        "name": "Burgers"},
+
+     {"ingredients":"Burgers, Cheese, Buns, Condiments", 
+        "instructions":"Cook burgers, add cheese. Place on buns and add condiments.", 
+        "name":"Cheeseburgers"}
 ]
