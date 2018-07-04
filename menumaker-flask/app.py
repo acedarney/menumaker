@@ -3,10 +3,12 @@ from flask_mongoengine import MongoEngine
 from flask_mongoengine.wtf import model_form
 from flask_marshmallow import Marshmallow
 from marshmallow_mongoengine import ModelSchema
+import wtforms.fields as wtf
 
 app = Flask(__name__)
 app.config.from_object(__name__)
 app.config['MONGODB_SETTINGS'] = {'DB': 'menumaker_flask'}
+app.config['SECRET_KEY'] = 'thisisasecret!'
 
 db = MongoEngine(app)
 ma = Marshmallow(app)
@@ -15,12 +17,12 @@ ma = Marshmallow(app)
 # Create models
 
 class Ingredient(db.EmbeddedDocument):
-    name = db.StringField()
-    measure = db.StringField()
-    qty = db.StringField()
+    name = db.StringField(max_length=50)
+    measure = db.StringField(max_length=10)
+    qty = db.StringField(max_length=10)
 
 class Recipe(db.Document):
-    name = db.StringField()
+    name = db.StringField(max_length=50)
     instructions = db.StringField()
     ingredients = db.ListField(db.EmbeddedDocumentField(Ingredient))
     # ingredients = db.StringField()
@@ -64,9 +66,20 @@ def add_recipe_api():
     
 # Forms with WTForms
 
-# RecipeForm = model_form(Recipe)
+RecipeForm = model_form(Recipe)
+# RecipeForm.name = wtf.StringField('Name')
+# RecipeForm.instructions = wtf.TextAreaField('Instructions')
 
-
+@app.route('/recipe/add', methods=['GET', 'POST'])
+def add_recipe():
+    form = RecipeForm()
+    test_recipe = Recipe.objects.first_or_404()
+    if form.validate_on_submit():
+        # redirect(url_for('recipe/{}'.format(form.name.data)))
+        return 'Success!'
+    # else:
+    #     return 'Failure :('
+    return render_template('add_recipe.html', form=form)
 
 
 
