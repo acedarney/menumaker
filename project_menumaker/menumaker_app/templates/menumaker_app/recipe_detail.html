@@ -1,6 +1,33 @@
 
-<h1>Recipe Detail View</h1>
-<h2>{{ recipe.name }}</h2>
+<h1> {{ recipe.name }} ({{ recipe.cuisine }}) </h1>
+<h3>
+    Instructions
+</h3>
 <p>
     {{ recipe.instructions }}
 </p>
+<h3>
+    Ingredients
+</h3>
+<p>
+    <ul>
+        {% for ingredient in recipe.ingredients %}
+            <li>
+                {{ ingredient }}
+            </li>
+        {% endfor %}
+    </ul>
+</p>
+<h3>
+    Likes
+</h3>
+<p>
+    <ul>
+        {% for like in recipe.likes %}
+            <li>
+                {{ like }}
+            </li>    
+        {% endfor %}
+    </ul>
+</p>
+<a href="{% url 'recipe-list' %}"> Back to List </a>
