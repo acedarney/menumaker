@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Add a recipe to {{ menu.name }}{% endblock %}
+
+{% block body %}
+<div class='container'>
+    <h1>Add a recipe to {{ menu.name }}</h1>
+    <form action='/menu/<int:pk>/addrecipe/' method='POST'>
+        {% csrf_token %}
+        {{ form }}
+        <input type='submit' value='Add Recipe' />
+    </form>
+</div>
+{% endblock %}

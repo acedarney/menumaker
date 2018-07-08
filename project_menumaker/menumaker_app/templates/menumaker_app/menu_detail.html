@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ menu.name }}{% endblock %}
+
+{% block body %}
+<div class='container'>    
+    <h1>{{ menu.name }}</h1>
+    <ul>
+        {% for recipe in menu.recipes.all %}
+            <li>
+                {{ recipe.name }}
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'menu-list' %}">Back to List</a>
+</div>
+{% endblock %}

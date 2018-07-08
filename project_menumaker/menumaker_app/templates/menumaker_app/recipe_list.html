@@ -1,9 +1,44 @@
-<h1>Recipe List</h1>
+{% extends 'base.html' %}
 
-<ul>
-    {% for recipe in recipe_list %}
-        <li>
-            <a href="{% url 'recipe-detail' pk=recipe.pk %}"> {{ recipe.name }} </a>
-        </li>
-    {% endfor %}
-</ul>
+{% block title %}Recipe List{% endblock %}
+
+{% block body %}
+<div class='container'>
+    <h1>Recipe List</h1>
+    <div class='card-columns'>
+        {% for recipe in recipe_list %}
+            <div class='card'>
+                <img class='card-img-top' src='{{ recipe.image }}' alt='{{ recipe.name }}'>
+            
+                <div class='card-body'>
+                    <h5 class='card-title'>{{ recipe.name }}</h5>
+                    <a href="{% url 'recipe-detail' pk=recipe.pk %}" class='btn btn-primary'>View Recipe</a>
+                </div>
+
+                <div class='card-footer'>
+                    {% if recipe.likes.Dale == "True"  %}
+                        <i class="material-icons" title='Dale'>star</i>
+                    {% else %}
+                        <i class="material-icons" title='Dale'>star_border</i>
+                    {% endif %}
+                    {% if recipe.likes.Jennifer == "True"  %}
+                        <i class="material-icons" title='Jennifer'>star</i>
+                    {% else %}
+                        <i class="material-icons" title='Jennifer'>star_border</i>
+                    {% endif %}
+                    {% if recipe.likes.Isabelle == "True"  %}
+                        <i class="material-icons" title='Isabelle'>star</i>
+                    {% else %}
+                        <i class="material-icons" title='Isabelle'>star_border</i>
+                    {% endif %}
+                    {% if recipe.likes.Parker == "True"  %}
+                        <i class="material-icons" title='Parker'>star</i>
+                    {% else %}
+                        <i class="material-icons" title='Parker'>star_border</i>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

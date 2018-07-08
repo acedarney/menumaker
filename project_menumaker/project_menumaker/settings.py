@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'menumaker_app',
-    'django.contrib.postgres' 
+    'django.contrib.postgres' ,
+    'ckeditor',
 ]
 
 MIDDLEWARE = [

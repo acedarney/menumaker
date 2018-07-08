@@ -1,12 +1,14 @@
 from django.db import models
 from django.contrib.postgres.fields import HStoreField, ArrayField
+from ckeditor.fields import RichTextField
 
 class Recipe(models.Model):
     name = models.CharField(max_length=50, default='Name')
-    instructions = models.TextField(default='Instructions')
+    image = models.URLField(max_length=300, default='https://pixabay.com/photo-575434/')
+    instructions = RichTextField(default='')
     ingredients = ArrayField(models.CharField(max_length=100, default='Ingredient', null=True), default=['Ingredient'])
     cuisine = models.CharField(max_length=30, default='Cuisine')
-    likes = HStoreField(default={"Dale": "True"})
+    likes = HStoreField(default={"Dale": "False", "Jennifer": "False", "Isabelle": "False", "Parker": "False"})
 
     def __str__(self):
         return self.name
@@ -15,3 +17,6 @@ class Menu(models.Model):
     name = models.CharField(max_length=50)
     date_created = models.DateField(auto_now_add=True)
     recipes = models.ManyToManyField(Recipe)
+
+    def __str__(self):
+        return self.name
