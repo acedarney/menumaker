@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'menumaker_app',
     'django.contrib.postgres' ,
     'ckeditor',
+    'crispy_forms',
+    'django_select2'
 ]
 
 MIDDLEWARE = [

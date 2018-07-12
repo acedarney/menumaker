@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.postgres.fields import HStoreField, ArrayField
 from ckeditor.fields import RichTextField
+from django.urls import reverse
+
 
 class Recipe(models.Model):
     name = models.CharField(max_length=50, default='Name')
@@ -13,6 +15,9 @@ class Recipe(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('recipe-detail', kwargs={'pk': self.pk})
+
 class Menu(models.Model):
     name = models.CharField(max_length=50)
     date_created = models.DateField(auto_now_add=True)
@@ -20,3 +25,6 @@ class Menu(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('menu-detail', kwargs={'pk': self.pk})
