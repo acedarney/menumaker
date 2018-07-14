@@ -5,13 +5,49 @@
 {% block body %}
 <div class='container'>    
     <h1>{{ menu.name }}</h1>
-    <ul>
+    <div class='card-columns'>
         {% for recipe in menu.recipes.all %}
-            <li>
-                {{ recipe.name }}
-            </li>
+            <div class='card'>
+                <img class='card-img-top' src='{{ recipe.image }}' alt='{{ recipe.name }}'>
+            
+                <div class='card-body'>
+                    <h5 class='card-title'>{{ recipe.name }}</h5>
+                    <a href="{% url 'recipe-detail' pk=recipe.pk %}" class='btn btn-primary'>View Recipe</a>
+                </div>
+
+                <div class='card-footer'>
+                    {% if recipe.likes.Dale == "True"  %}
+                        <i class="material-icons" title='Dale'>star</i>
+                    {% else %}
+                        <i class="material-icons" title='Dale'>star_border</i>
+                    {% endif %}
+                    {% if recipe.likes.Jennifer == "True"  %}
+                        <i class="material-icons" title='Jennifer'>star</i>
+                    {% else %}
+                        <i class="material-icons" title='Jennifer'>star_border</i>
+                    {% endif %}
+                    {% if recipe.likes.Isabelle == "True"  %}
+                        <i class="material-icons" title='Isabelle'>star</i>
+                    {% else %}
+                        <i class="material-icons" title='Isabelle'>star_border</i>
+                    {% endif %}
+                    {% if recipe.likes.Parker == "True"  %}
+                        <i class="material-icons" title='Parker'>star</i>
+                    {% else %}
+                        <i class="material-icons" title='Parker'>star_border</i>
+                    {% endif %}
+                </div>
+            </div>
         {% endfor %}
-    </ul>
+        <a href="{% url 'menu-update' pk=menu.pk %}">
+            <div class='card'>
+                <div class='card-body'>
+                    <h5 class='card-title'>Add New Recipe</h5>
+                    <i class='material-icons' style='font-size:10em; color:green'>add_circle</i>
+                </div>
+            </div>
+        </a>
+    </div>
     <a href="{% url 'menu-list' %}">Back to List</a>
 </div>
 {% endblock %}

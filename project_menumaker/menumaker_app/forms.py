@@ -1,9 +1,14 @@
 from django import forms
 from .models import Recipe, Menu
 
-class MenuForm(forms.ModelForm):
-    # menu_name = forms.CharField(label='Current Menu', max_length=50, disabled=True)
-    # recipe_name = forms.CharField(label='Recipe Name', max_length=50)
-    class Meta:
-        model = Menu
-        fields = ['name', 'recipes']
+
+# class MenuForm(forms.ModelForm):
+#     class Meta:
+#         model = Menu
+#         fields = ('recipes', )
+#         widgets = {
+#             'recipes': ModelSelect2MultipleWidget(
+#                 model=Recipe,
+#                 search_fields=['name__icontains']
+#             )
+#         }

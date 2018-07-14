@@ -18,5 +18,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('menumaker_app.urls'))
+    path('', include('menumaker_app.urls')),
+    path('select2/', include('django_select2.urls'))
 ]
