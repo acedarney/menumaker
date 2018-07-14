@@ -1,0 +1,83 @@
+[
+    {
+        "id": 2,
+        "url": "http://127.0.0.1:8000/api/recipes/2/",
+        "name": "Apple Pie",
+        "image": "https://images-gmi-pmc.edge-generalmills.com/83c96245-22eb-4ef1-9446-ef21a746b0a7.jpg",
+        "instructions": "<ol>\r\n\t<li>Heat oven to 425&deg;F. Place 1 pie crust in ungreased 9-inch glass pie plate. Press firmly against side and bottom.</li>\r\n\t<li>In large bowl, gently mix filling ingredients; spoon into crust-lined pie plate. Top with second crust. Wrap excess top crust under bottom crust edge, pressing edges together to seal; flute. Cut slits or shapes in several places in top crust.</li>\r\n\t<li>Bake 40 to 45 minutes or until apples are tender and crust is golden brown. Cover edge of crust with 2- to 3-inch wide strips of foil after first 15 to 20 minutes of baking to prevent excessive browning. Cool on cooling rack at least 2 hours before serving.</li>\r\n</ol>",
+        "ingredients": [
+            "1 box Pillsbury refrigerated pie crusts softened as directed on box",
+            "6 cups thinly sliced peeled apples (6 medium)",
+            "3/4 cup sugar",
+            "2 tablespoons all-purpose flour",
+            "3/4 teaspoon ground cinnamon",
+            "1/4 teaspoon salt",
+            "1/8 teaspoon ground nutmeg",
+            "1 tablespoon lemon juice"
+        ],
+        "cuisine": "Dessert",
+        "likes": {
+            "Dale": "True",
+            "Parker": "True",
+            "Isabelle": "True",
+            "Jennifer": "True"
+        }
+    },
+    {
+        "id": 1,
+        "url": "http://127.0.0.1:8000/api/recipes/1/",
+        "name": "Spaghetti with Meat Sauce",
+        "image": "https://images.media-allrecipes.com/userphotos/720x405/667748.jpg",
+        "instructions": "<ol>\r\n\t<li>Cook spaghetti according to instructions.</li>\r\n\t<li>Combine ground beef, onion, garlic, and green pepper in a large saucepan. Cook and stir until meat is brown and vegetables are tender. Drain grease.</li>\r\n\t<li>Stir diced tomatoes, tomato sauce, and tomato paste into the pan. Season with oregano, basil, salt, and pepper. Simmer spaghetti sauce for 1 hour, stirring occasionally.</li>\r\n</ol>",
+        "ingredients": [
+            "1 box of spaghetti noodles",
+            "1 pound ground beef",
+            "1 onion chopped",
+            "4 cloves garlic minced",
+            "1 small green bell pepper diced",
+            "1 (28 ounce) can diced tomatoes",
+            "1 (16 ounce) can tomato sauce",
+            "1 (6 ounce) can tomato paste",
+            "2 teaspoons dried oregano",
+            "2 teaspoons dried basil",
+            "1 teaspoon salt",
+            "1/2 teaspoon black pepper"
+        ],
+        "cuisine": "Italian",
+        "likes": {
+            "Dale": "True",
+            "Parker": "True",
+            "Isabelle": "True",
+            "Jennifer": "True"
+        }
+    },
+    {
+        "id": 3,
+        "url": "http://127.0.0.1:8000/api/recipes/3/",
+        "name": "Slow Cooker Chicken Thighs",
+        "image": "https://hips.hearstapps.com/del.h-cdn.co/assets/17/34/2048x1365/gallery-1503418862-chicken-thighs-delish.jpg?resize=980:*",
+        "instructions": "<ol>\r\n\t<li>In a cast-iron skillet over medium-high heat, heat oil. Season chicken thighs with salt and pepper and sear until golden, 3 minutes per side. Transfer chicken thighs to slow cooker.</li>\r\n\t<li>Whisk together soy sauce, ketchup, honey, garlic, ginger, Sriracha, and lime juice. Pour sauce over chicken and toss to combine.</li>\r\n\t<li>Cover and cook until no longer pink, on low for 6 hours or high for 2 hours. Serve with rice and garnish with cilantro.</li>\r\n</ol>",
+        "ingredients": [
+            "1 tbsp extra-virgin olive oil",
+            "6 bone-in or boneless chicken thighs",
+            "kosher salt",
+            "Freshly ground black pepper",
+            "1/2 cup low-sodium soy sauce",
+            "1/2 cup ketchup",
+            "1/4 cup honey",
+            "3 cloves garlic minced",
+            "1/2 oz. freshly chopped ginger",
+            "2 tbsp. sriracha",
+            "Juice of 1 lime",
+            "Cooked rice for serving",
+            "Freshly chopped cilantro for garnish"
+        ],
+        "cuisine": "Asian",
+        "likes": {
+            "Dale": "True",
+            "Parker": "False",
+            "Isabelle": "True",
+            "Jennifer": "True"
+        }
+    }
+]

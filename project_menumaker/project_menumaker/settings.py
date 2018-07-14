@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'crispy_forms',
     'django_select2',
+    'rest_framework',
     'menumaker_app',
 ]
 

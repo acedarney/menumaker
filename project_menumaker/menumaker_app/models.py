@@ -8,6 +8,7 @@ class Recipe(models.Model):
     name = models.CharField(max_length=50, default='Name')
     image = models.URLField(max_length=300, default='https://pixabay.com/photo-575434/')
     instructions = RichTextField(default='')
+    # ingredients = ArrayField(HStore(), default=[{'name':'', 'qty':''}])
     ingredients = ArrayField(models.CharField(max_length=100, default='Ingredient', null=True), default=['Ingredient'])
     cuisine = models.CharField(max_length=30, default='Cuisine')
     likes = HStoreField(default={"Dale": "False", "Jennifer": "False", "Isabelle": "False", "Parker": "False"})
