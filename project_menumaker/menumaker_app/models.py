@@ -16,7 +16,7 @@ class Recipe(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('recipe-detail', kwargs={'pk': self.pk})
+        return reverse('recipe-detail-view', kwargs={'pk': self.pk})
 
 class Menu(models.Model):
     name = models.CharField(max_length=50)
@@ -27,4 +27,4 @@ class Menu(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('menu-detail', kwargs={'pk': self.pk})
+        return reverse('menu-detail-view', kwargs={'pk': self.pk})

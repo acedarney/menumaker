@@ -12,7 +12,7 @@
             
                 <div class='card-body'>
                     <h5 class='card-title'>{{ recipe.name }}</h5>
-                    <a href="{% url 'recipe-detail' pk=recipe.pk %}" class='btn btn-primary'>View Recipe</a>
+                    <a href="{% url 'recipe-detail-view' pk=recipe.pk %}" class='btn btn-primary'>View Recipe</a>
                 </div>
 
                 <div class='card-footer'>
@@ -39,7 +39,7 @@
                 </div>
             </div>
         {% endfor %}
-        <a href="{% url 'menu-update' pk=menu.pk %}">
+        <a href="{% url 'menu-update-view' pk=menu.pk %}">
             <div class='card'>
                 <div class='card-body'>
                     <h5 class='card-title'>Add New Recipe</h5>
@@ -48,6 +48,6 @@
             </div>
         </a>
     </div>
-    <a href="{% url 'menu-list' %}">Back to List</a>
+    <a href="{% url 'menu-list-view' %}">Back to List</a>
 </div>
 {% endblock %}
